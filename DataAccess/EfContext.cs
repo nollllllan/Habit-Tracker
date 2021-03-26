@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using DataAccess.Entities;
 
 namespace DataAccess
 {
@@ -6,5 +7,7 @@ namespace DataAccess
     {
         public EfContext(string connection) : base(connection)
         { }
+
+        public IDbSet<User> Users { get; set; }
     }
 }
