@@ -1,4 +1,5 @@
 using DataAccess;
+using DataAccess.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -21,6 +22,8 @@ namespace Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped(_ => new EfContext(Configuration.GetConnectionString("Default")));
+            services.AddTransient<IHabitRepository, HabitRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

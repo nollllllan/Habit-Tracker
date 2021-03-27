@@ -9,5 +9,6 @@ namespace DataAccess
         { }
 
         public IDbSet<User> Users { get; set; }
+        public IDbSet<Habit> Habits { get; set; }
     }
 }
