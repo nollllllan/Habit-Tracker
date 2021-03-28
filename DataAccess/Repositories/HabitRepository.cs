@@ -38,10 +38,8 @@ namespace DataAccess.Repositories
         public void Update(Habit habit)
         {
             var entity = _context.Habits.Find(habit.Id);
-            entity.GoalResult = habit.GoalResult;
-            entity.Name = habit.Name;
-            entity.NowResult = habit.NowResult;
-
+            
+            _context.Entry(entity).CurrentValues.SetValues(habit);
             _context.SaveChanges();
         }
     }

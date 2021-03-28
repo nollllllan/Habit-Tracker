@@ -10,5 +10,7 @@ namespace DataAccess
 
         public IDbSet<User> Users { get; set; }
         public IDbSet<Habit> Habits { get; set; }
+        public IDbSet<Room> Rooms { get; set; }
+        public IDbSet<RoomMembership> RoomMembership { get; set; }
     }
 }

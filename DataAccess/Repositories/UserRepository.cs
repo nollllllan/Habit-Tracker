@@ -12,7 +12,6 @@ namespace DataAccess.Repositories
             _context = context;
         }
 
-
         public void Add(User user)
         {
             _context.Users.Add(user);
@@ -40,11 +39,8 @@ namespace DataAccess.Repositories
         public void Update(User user)
         {
             var entity = _context.Users.Find(user.Id);
-            
-            entity.Capability = user.Capability;
-            entity.Login = user.Login;
-            entity.Password = user.Password;
-            
+
+            _context.Entry(entity).CurrentValues.SetValues(user);
             _context.SaveChanges();
         }
     }

@@ -31,6 +31,19 @@ namespace UnitTests
         }
 
         [Test]
+        public void UpdateUser()
+        {
+            var user = new User
+            {
+                Id = 2,
+                Login = "test2",
+                Password = "test"
+            };
+
+            _repository.Update(user);
+        }
+
+        [Test]
         public void Get_All()
         {
             var users = _repository.GetAll().ToList();

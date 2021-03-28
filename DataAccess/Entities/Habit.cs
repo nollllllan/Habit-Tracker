@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace DataAccess.Entities
@@ -9,8 +10,10 @@ namespace DataAccess.Entities
         public string Name { get; set; }
         public int NowResult { get; set; }
         public int GoalResult { get; set; }
-        [ForeignKey("User")]
-        public int UserId { get; set; }
-        public User User { get; set; }
+        public int? UserId { get; set; }
+        public virtual User User { get; set; }
+        public int? RoomId { get; set; }
+        public virtual Room Room { get; set; }
+
     }
 }
